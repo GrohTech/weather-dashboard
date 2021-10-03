@@ -67,10 +67,17 @@ searchBtn.addEventListener('click', function(){
 function fiveDayPopulate(date,data){
     var futureDate = "#day" + date;
     var day1 = document.querySelector(futureDate);
-    day1.append(data.main.temp);
-    day1.append(data.wind.speed);
-    day1.append(data.main.humidity);
-    console.log(futureDate);
+    var item1 = day1.append(data.main.temp);
+    var item2 = day1.append(data.wind.speed);
+    var item3 = day1.append(data.main.humidity);
+
+    // var value1 = item1.value;
+    // var value2 = item2.value;
+    // var value3 = item3.value;
+    // value1.style.display= "block";
+    // value2.style.display= "block";
+    // value3.style.display= "block";
+    // console.log(futureDate);
 }
 
 
