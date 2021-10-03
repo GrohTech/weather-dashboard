@@ -11,25 +11,25 @@ var uvIndex = document.querySelector("#uv-index");
 
 searchBtn.addEventListener('click', function(){
      fetch("https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=733365acf6769a12fdd6beef0019d12f")
-    
+    console.log(this)
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
         console.log(data);
-        // var nameValue = data['name'];
-        // var tempValue = data['main']['temp'];
-        // var windValue = data['wind']['speed'];
-        // var humidityValue = data['main']['humidity'];
-        // var uvIndexValue = 
+        var nameValue = data['name'];
+        var tempValue = data['main']['temp'];
+        var windValue = data['wind']['speed'];
+        var humidityValue = data['main']['humidity'];
+        var uvIndexValue = 
 
-        // name.innerHTML = nameValue;
-        // temp.innerHTML = tempValue;
-        // wind.innerHTML = windValue;
-        // humidity.innerHTML = humidityValue;
-        // uvIndex.innerHTML = uvIndexValueValue;
+        name.innerHTML = nameValue;
+        temp.innerHTML = tempValue;
+        wind.innerHTML = windValue;
+        humidity.innerHTML = humidityValue;
+        uvIndex.innerHTML = uvIndexValueValue;
 
-        // cityData.append(response.data.main.temp);
+        cityData.append(response.data.main.temp);
     })
     .catch(function(err) {
         alert("Your request did not work.")

@@ -18,23 +18,32 @@
     <div class="container">
         <div class="row">
             <div class="col-4">
-                <form>
                     <div class="form-group">
                         <label for="citysearch">Search for a City:</label>
                         <input class="form-control" type="text" id="city-search" name="city-search">
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-secondary btn-md btn-block" id="search-btn">Search</button>
+                        <button type="button" class="btn btn-secondary btn-md btn-block" id="search-btn">Search</button>
                     </div>
-                </form>
             </div>
             <div class="col-8">
-                <div class="row" id="city-data">
+                <div class="row" id="city-date">
                     <h2 id="name"></h2>
-                    <p id="temp"></p>
-                    <p id="wind"></p>
-                    <p id="humidity"></p>
-                    <p id="uv-index"></p>
+                    <h3 id="date"></h3>
+                </div>
+                <div class="row" id="city-data">
+                    <div class="col-6">
+                        <p>Temperature:</p>
+                        <p id="temp"></p>
+                        <p>Wind Speed:</p>
+                        <p id="wind"></p>
+                    </div>
+                    <div class="col-6">
+                        <p>Humidity:</p>
+                        <p id="humidity"></p>
+                        <p>UV Index:</p>
+                        <p id="uv-index"></p>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-2 col-md-offset-1">
