@@ -2,7 +2,7 @@
 // var citySearch = "Milwaukee";
 var cityData = document.querySelector("#city-data");
 var searchBtn = document.querySelector("#search-btn")
-var name = document.querySelector("#name");
+var cityName = document.querySelector("#city-name");
 var temp = document.querySelector("#temp");
 var wind = document.querySelector("#wind");
 var humidity = document.querySelector("#humidity");
@@ -31,7 +31,7 @@ searchBtn.addEventListener('click', function(){
         var humidityValue = data['main']['humidity'];
         // var uvIndexValue = 
 
-        name.innerHTML = nameValue;
+        cityName.innerHTML = nameValue;
         temp.innerHTML = tempValue;
         wind.innerHTML = windValue;
         humidity.innerHTML = humidityValue;
@@ -68,12 +68,10 @@ function fiveDayPopulate(date,data){
     var futureDate = "#day" + date;
     var day1 = document.querySelector(futureDate);
     day1.append(data.main.temp);
+    day1.append(data.wind.speed);
+    day1.append(data.main.humidity);
     console.log(futureDate);
-
 }
-
-// };
-// cityWeather();
 
 
 // uvi less than 3 = favorable 
