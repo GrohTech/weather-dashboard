@@ -8,10 +8,14 @@ var temp = document.querySelector("#temp");
 var wind = document.querySelector("#wind");
 var humidity = document.querySelector("#humidity");
 var uvIndex = document.querySelector("#uv-index");
+var date = document.querySelector("#date");
+
+// Display date
+currentDate = moment().format('MM/DD/YYYY');
+date.append(currentDate);
 
 searchBtn.addEventListener('click', function(){
      fetch("https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=733365acf6769a12fdd6beef0019d12f")
-    console.log(this)
     .then(function(response) {
         return response.json();
     })
