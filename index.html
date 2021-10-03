@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weather Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <form>
+                    <div class="form-group">
+                        <label for="citysearch">Search for a City:</label>
+                        <input class="form-control" type="text" id="city-search" name="city-search">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-secondary btn-md btn-block" id="search-btn">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-8">
+                <div class="row" id="city-data">
+                    <p id="name"></p>
+                    <p id="temp"></p>
+                    <p id="wind"></p>
+                    <p id="humidity"></p>
+                    <p id="uv-index"></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-1">
+                        It works
+                    </div>
+                    <div class="col-md-2">
+                        It works
+                    </div>
+                    <div class="col-md-2">
+                        It works
+                    </div>
+                    <div class="col-md-2">
+                        It works
+                    </div>
+                    <div class="col-md-2">
+                        It works
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
