@@ -17,7 +17,7 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-3">
                     <div class="form-group">
                         <label for="citysearch">Search for a City:</label>
                         <input class="form-control" type="text" id="city-search" name="city-search">
@@ -26,7 +26,7 @@
                         <button type="button" class="btn btn-secondary btn-md btn-block" id="search-btn">Search</button>
                     </div>
             </div>
-            <div class="col-8">
+            <div class="col-9">
                 <div class="row" id="city-name-container">
                     <h2 id="city-name"></h2>
                 </div>
@@ -52,34 +52,59 @@
                     <h2>5-Day Forecast:</h2>
                 </div>
                 <div class="row">
-                    <div class="col-md-2 col-md-offset-1">
-                        <div class="row" id="date1">
-                        </div>
-                        <div class="row" id="day1">
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="row" id="date2">
-                        </div>
-                        <div class="row" id="day2">
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="row" id="date3">
-                        </div>
-                        <div class="row" id="day3">
+                    <div class="col-md-2 col-md-offset-1 card">
+                        <div class="card-body">
+                            <h5 class="row card-title" id="date1">
+                            </h3>
+                            <div class="row card-text" id="day1">
+                                <p class="temp-data"></p>
+                                <p class="wind-data"></p>
+                                <p class="hum-data"></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="row" id="date4">
-                        </div>
-                        <div class="row" id="day4">
+                    <div class="col-md-2 card">
+                        <div class="card-body">
+                            <h5 class="row card-title" id="date2">
+                            </h5>
+                            <div class="row card-text" id="day2">
+                                <p class="temp-data"></p>
+                                <p class="wind-data"></p>
+                                <p class="hum-data"></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="row" id="date5">
+                    <div class="col-md-2 card">
+                        <div class="card-body">
+                            <h5 class="row card-title" id="date3">
+                            </h5>
+                            <div class="row card-text" id="day3">
+                                <p class="temp-data"></p>
+                                <p class="wind-data"></p>
+                                <p class="hum-data"></p>
+                            </div>
                         </div>
-                        <div class="row" id="day5">
+                    </div>
+                    <div class="col-md-2 card">
+                        <div class="card-body">
+                            <h5 class="row card-title" id="date4">
+                            </h5>
+                            <div class="row card-text" id="day4">
+                                <p class="temp-data"></p>
+                                <p class="wind-data"></p>
+                                <p class="hum-data"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 card">
+                        <div class="card-body">
+                            <h5 class="row card-title" id="date5">
+                            </h5>
+                            <div class="row card-text" id="day5">
+                                <p class="temp-data"></p>
+                                <p class="wind-data"></p>
+                                <p class="hum-data"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
