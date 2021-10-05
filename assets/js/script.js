@@ -13,10 +13,6 @@ var date2 = document.querySelector("#date2");
 var date3 = document.querySelector("#date3");
 var date4 = document.querySelector("#date4");
 var date5 = document.querySelector("#date5");
-// var day2 = document.querySelector("#day2");
-// var day3 = document.querySelector("#day3");
-// var day4 = document.querySelector("#day4");
-// var day5 = document.querySelector("#day5");
 
 
 // Display date
@@ -30,13 +26,14 @@ var displayDate4 = moment().add(4,'days').format('MM/DD/YYYY');
 var displayDate5 = moment().add(5,'days').format('MM/DD/YYYY');
 
 
-
+// Search for a city
 searchBtn.addEventListener('click', function(){
     var citySearch = document.querySelector("#city-search").value;
      fetch("https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=733365acf6769a12fdd6beef0019d12f&units=imperial")
     .then(function(response) {
         return response.json();
     })
+    // Display city weather data
     .then(function(data) {
         console.log(data);
         var nameValue = data['name'];
@@ -58,6 +55,7 @@ searchBtn.addEventListener('click', function(){
         console.log(citySearch);
     })
 
+    // Display 5-day weather data
     function fiveDay(){
         fetch("https:api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=733365acf6769a12fdd6beef0019d12f&units=imperial")
         .then(function(response) {
@@ -65,20 +63,20 @@ searchBtn.addEventListener('click', function(){
         })
         .then(function(data) {
             console.log(data);
+
+            // Display dates
             date1.append(displayDate1);
             date2.append(displayDate2);
             date3.append(displayDate3);
             date4.append(displayDate4);
             date5.append(displayDate5);
+
+            // Display 5-day weather data
             fiveDayPopulate(1, data.list[6]);
             fiveDayPopulate(2, data.list[14]);
             fiveDayPopulate(3, data.list[22]);
             fiveDayPopulate(4, data.list[30]);
             fiveDayPopulate(5, data.list[38]);
-
-            
-            
-            
 
         })
         .catch(function(error) {
@@ -91,61 +89,32 @@ searchBtn.addEventListener('click', function(){
 function fiveDayPopulate(date,data){
     var futureDate = "#day" + date;
     var day1 = document.querySelector(futureDate);
-    day1.append(data.main.temp);
-    day1.append(data.wind.speed);
-    day1.append(data.main.humidity);
+
+    // Display weather icons
+    var weatherIcon = document.createElement("img");
+    var getIcon = data.weather[0].icon;
+    weatherIcon.setAttribute("href", "http://openweathermap.org/img/wn/" + getIcon + "@2x.png");
+    weatherIcon.style.width="25px";
+    weatherIcon.style.height="25px";
+    day1.append(weatherIcon);
+
+    // Display temp, wind, humidity
+    var tempData = document.createElement("p");
+    tempData.innerText = "Temperature: " + data.main.temp;
+    day1.append(tempData);
+    var windData = document.createElement("p");
+    windData.innerText = "Wind Speed: " + data.wind.speed;
+    day1.append(windData);
+    var humData = document.createElement("p");
+    humData.innerText = "Humidity: " + data.main.humidity;
+    day1.append(humData);
+    
+    console.log(weatherIcon);
 };
  
 
 
-
-
-
-
-
-
-
-
-// function fiveDayPopulateWind(date,data){
-//     var futureDate = "#winddata" + date;
-//     var windData1 = document.querySelector(futureDate);
-//     windData1.append(data.wind.speed);
-// };
-    
-    
-    
-    
-    
-    // var item2 = day1.append(data.wind.speed);
-    // var item3 = day1.append(data.main.humidity);
-
-    // var value1 = item1.value;
-    // var value2 = item2.value;
-    // var value3 = item3.value;
-    // value1.style.display= "block";
-    // value2.style.display= "block";
-    // value3.style.display= "block";
-    // console.log(futureDate);
-
-
-
-// uvi less than 3 = favorable 
-// Else if  less than 7 = moderate
-// Else severe
-
-// Change from Kelvin to Fahrenheit
-// Add imperial units attribute to fetch call
-
-// var apiCall = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=733365acf6769a12fdd6beef0019d12f"
-
-
-            // fiveDayPopulateWind(1, data.list[6]);
-            // fiveDayPopulateWind(2, data.list[14]);
-            // fiveDayPopulateWind(3, data.list[22]);
-            // fiveDayPopulateWind(4, data.list[30]);
-            // fiveDayPopulateWind(5, data.list[38]);
-
-            js
+ 
 
             // uvi less than 3 = favorable 
             // Else if  less than 7 = moderate
@@ -157,50 +126,5 @@ function fiveDayPopulate(date,data){
             // var apiCall = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=733365acf6769a12fdd6beef0019d12f"
             
             
-            // var day2 = document.querySelector("#day2");
-            // var day3 = document.querySelector("#day3");
-            // var day4 = document.querySelector("#day4");
-            // var day5 = document.querySelector("#day5");
-            
-            
-            // // 5-day forecast variables
-            // var tempData1 = document.querySelector(".temp-data1");
-            // var windData1 = document.querySelector(".wind-data1");
-            // var humData1 = document.querySelector(".hum-data1");
-            
-            // var tempData2 = document.querySelector(".temp-data2");
-            // var windData2 = document.querySelector(".wind-data2");
-            // var humData2 = document.querySelector(".hum-data2");
-            
-            // var tempData3 = document.querySelector(".temp-data3");
-            // var windData3 = document.querySelector(".wind-data3");
-            // var humData3 = document.querySelector(".hum-data3");
-            
-            // var tempData4 = document.querySelector(".temp-data4");
-            // var windData4 = document.querySelector(".wind-data4");
-            // var humData4 = document.querySelector(".hum-data4");
-            
-            // var tempData5 = document.querySelector(".temp-data5");
-            // var windData5 = document.querySelector(".wind-data5");
-            // var humData5 = document.querySelector(".hum-data5");
-            
-            
-            // function fiveDayPopulate(date,data){
-            //     var futureDate = "#day" + date;
-            //     var day1 = document.querySelector(futureDate);
-            
-            //     var tempData = document.createElement("p");
-            //     // var tempData = document.querySelector(".temp-data");
-            //     tempData.innerText = data.main.temp;
-            //     day1.append(tempData);
-            //     var windData = document.createElement("p");
-            //     // var windData = document.querySelector(".wind-data");
-            //     windData.innerText = data.wind.speed;
-            //     day1.append(windData);
-            //     var humData = document.createElement("p");
-            //     // var humData = document.querySelector(".hum-data");
-            //     humData.innerText = data.main.humidity;
-            //     day1.append(humData);
-            
-            //     // console.log(futureDate);
-            // }
+
+        
