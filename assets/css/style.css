@@ -26,6 +26,16 @@ label {
     font-size: 30px;
 }
 
+/* City Data section styles start */
+.city-data-container {
+    border: 1px solid black;
+    padding: 10px 30px;
+    margin: 15px 0px;
+}
+/* #city-name-container, #city-date, #city-data{
+
+} */
+/* City Data section styles end */
 
 /* Search for a city styles end */
 
@@ -40,6 +50,12 @@ label {
 .card {
     margin-left: 12px;
     margin-right: 12px;
+    background-color: #E59500;
+    color: #573280;
+    border: 2px solid #5E3023;
+}
+.card h5 {
+    color: #5E3023;
 }
 .forecast-row {
     width: 100%;

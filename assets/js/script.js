@@ -43,9 +43,9 @@ searchBtn.addEventListener('click', function(){
         // var uvIndexValue = 
 
         cityName.innerHTML = nameValue;
-        temp.innerHTML = tempValue;
-        wind.innerHTML = windValue;
-        humidity.innerHTML = humidityValue;
+        temp.innerHTML = tempValue + " °F";
+        wind.innerHTML = windValue + " mph";
+        humidity.innerHTML = humidityValue + "%";
         // uvIndex.innerHTML = uvIndexValueValue;
         
         fiveDay();
@@ -55,7 +55,7 @@ searchBtn.addEventListener('click', function(){
         console.log(citySearch);
     })
 
-    // Display 5-day weather data
+// Display 5-day weather data
     function fiveDay(){
         fetch("https:api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=733365acf6769a12fdd6beef0019d12f&units=imperial")
         .then(function(response) {
@@ -77,6 +77,10 @@ searchBtn.addEventListener('click', function(){
             fiveDayPopulate(3, data.list[22]);
             fiveDayPopulate(4, data.list[30]);
             fiveDayPopulate(5, data.list[38]);
+
+            
+            
+            
 
         })
         .catch(function(error) {
@@ -100,13 +104,13 @@ function fiveDayPopulate(date,data){
 
     // Display temp, wind, humidity
     var tempData = document.createElement("p");
-    tempData.innerText = "Temperature: " + data.main.temp;
+    tempData.innerText = "Temperature: " + data.main.temp + "°F";
     day1.append(tempData);
     var windData = document.createElement("p");
-    windData.innerText = "Wind Speed: " + data.wind.speed;
+    windData.innerText = "Wind Speed: " + data.wind.speed + " mph";
     day1.append(windData);
     var humData = document.createElement("p");
-    humData.innerText = "Humidity: " + data.main.humidity;
+    humData.innerText = "Humidity: " + data.main.humidity + "%";
     day1.append(humData);
     
     console.log(weatherIcon);
