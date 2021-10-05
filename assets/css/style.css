@@ -11,7 +11,7 @@
 header {
     text-align: center;
     background-color: #5E3023;
-    padding: 10px;
+    padding: 2px;
 }
 
 h1 {
@@ -26,9 +26,14 @@ label {
     font-size: 30px;
 }
 
+button {
+    background-color: #5E3023 !important;
+    color: #E59500 !important;
+}
+
 /* City Data section styles start */
 .city-data-container {
-    border: 1px solid black;
+    border: 2px solid #5E3023;
     padding: 10px 30px;
     margin: 15px 0px;
 }

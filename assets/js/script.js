@@ -47,13 +47,37 @@ searchBtn.addEventListener('click', function(){
         wind.innerHTML = windValue + " mph";
         humidity.innerHTML = humidityValue + "%";
         // uvIndex.innerHTML = uvIndexValueValue;
-        
+        getUvIndex();
         fiveDay();
     })
     .catch(function(error) {
         alert("Your request did not work.")
-        console.log(citySearch);
     })
+
+
+
+    // Display color-coded UV Index
+    function getUvIndex(){
+        var lat = data.coord.lat;
+        var lon = data.coord.lon;
+        console.log(lat);
+        console.log(lon);
+        // var citySearch = document.querySelector("#city-search").value;
+        fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=733365acf6769a12fdd6beef0019d12f&units=imperial&exclude=minutely&exclude=hourly")
+       .then(function(response) {
+           return response.json();
+       })
+       // Display city weather data
+       .then(function(data) {            
+
+       })
+       .catch(function(error) {
+           alert("Your request did not work.")
+           console.log(error);
+       })
+   }    
+
+
 
 // Display 5-day weather data
     function fiveDay(){
