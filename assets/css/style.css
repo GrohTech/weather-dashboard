@@ -40,6 +40,8 @@ label {
     width: 100%;
     margin-top: 5px;
 }
+/* Search for a city styles end */
+
 
 /* City Data section styles start */
 .city-data-container {
@@ -58,12 +60,8 @@ label {
 .uv-background {
     width: 20%;
 }
-/* #city-name-container, #city-date, #city-data{
-
-} */
 /* City Data section styles end */
 
-/* Search for a city styles end */
 
 /* 5-day forecast styles start */
 #day1, #day2, #day3, #day4, #day5 {
