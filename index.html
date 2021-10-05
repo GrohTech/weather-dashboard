@@ -18,7 +18,7 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-<!---- Search fo a city ---->
+<!---- Search for a city ---->
     <div class="container">
         <div class="row">
             <div class="col-3">
@@ -29,15 +29,19 @@
                     <div class="form-group">
                         <button type="button" class="btn btn-secondary btn-md btn-block" id="search-btn">Search</button>
                     </div>
+                    <div id="recent-cities"></div>
             </div>
  <!------ Basic city data ------>
             <div class="col-9">
                 <div class="city-data-container">
                     <div class="row" id="city-name-container">
                         <h2 id="city-name"></h2>
+                        <div id="city-date">
+                            <h4 id="date"></h4>
+                        </div>
                     </div>
-                    <div class="row" id="city-date">
-                        <h4 id="date"></h4>
+                    <div class="row">
+                        <div id="weather-icon-container"></div>
                     </div>
                     <div class="row" id="city-data">
                         <div class="col-6">
@@ -51,7 +55,9 @@
                             <h5>Humidity:</h5>
                             <p id="humidity"></p>
                             <h5>UV Index:</h5>
+                            <div class="uv-background">
                             <p id="uv-index"></p>
+                            </div>
                         </div>
                     </div>
                 </div>

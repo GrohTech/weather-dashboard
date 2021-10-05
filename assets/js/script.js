@@ -7,13 +7,14 @@ var temp = document.querySelector("#temp");
 var wind = document.querySelector("#wind");
 var humidity = document.querySelector("#humidity");
 var uvIndex = document.querySelector("#uv-index");
+var uvBackground = document.querySelector(".uv-background");
 var date = document.querySelector("#date");
 var date1 = document.querySelector("#date1"); 
 var date2 = document.querySelector("#date2");
 var date3 = document.querySelector("#date3");
 var date4 = document.querySelector("#date4");
 var date5 = document.querySelector("#date5");
-
+var recentCities = JSON.parse(window.localStorage.getItem("cities")) || [];
 
 // Display date
 var currentDate = moment().format('MM/DD/YYYY');
@@ -27,8 +28,12 @@ var displayDate5 = moment().add(5,'days').format('MM/DD/YYYY');
 
 
 // Search for a city
-searchBtn.addEventListener('click', function(){
+searchBtn.addEventListener('click', function(event){
     var citySearch = document.querySelector("#city-search").value;
+    recentCities.push(citySearch);
+    localStorage.setItem("cities", JSON.stringify(recentCities));
+    previousCities();
+
      fetch("https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=733365acf6769a12fdd6beef0019d12f&units=imperial")
     .then(function(response) {
         return response.json();
@@ -36,6 +41,17 @@ searchBtn.addEventListener('click', function(){
     // Display city weather data
     .then(function(data) {
         console.log(data);
+
+        // Display weather icon
+        var weatherIconContainer = document.querySelector("#weather-icon-container");
+        var weatherIcon = document.createElement("img");
+        var getIcon = data.weather[0].icon;
+        weatherIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + getIcon + "@2x.png");
+        weatherIcon.style.width="60px";
+        weatherIcon.style.height="60px";
+        weatherIconContainer.append(weatherIcon);
+
+        // Display temp, wind, hum, UVI
         var nameValue = data['name'];
         var tempValue = data['main']['temp'];
         var windValue = data['wind']['speed'];
@@ -47,7 +63,7 @@ searchBtn.addEventListener('click', function(){
         wind.innerHTML = windValue + " mph";
         humidity.innerHTML = humidityValue + "%";
         // uvIndex.innerHTML = uvIndexValueValue;
-        getUvIndex();
+        getUvIndex(data);
         fiveDay();
     })
     .catch(function(error) {
@@ -57,7 +73,7 @@ searchBtn.addEventListener('click', function(){
 
 
     // Display color-coded UV Index
-    function getUvIndex(){
+    function getUvIndex(data){
         var lat = data.coord.lat;
         var lon = data.coord.lon;
         console.log(lat);
@@ -68,8 +84,22 @@ searchBtn.addEventListener('click', function(){
            return response.json();
        })
        // Display city weather data
-       .then(function(data) {            
-
+       .then(function(data) {
+           console.log(data);            
+            var uviData = data.current.uvi;
+            uvIndex.innerHTML = uviData;
+         // uvi less than 3 = favorable 
+            // Else if  less than 7 = moderate
+            // Else severe
+            if(uviData < 3){
+                uvBackground.style.backgroundColor="green";
+            }
+            else if(uviData< 7){
+                uvBackground.style.backgroundColor="yellow";
+            }
+            else{
+                uvBackground.style.backgroundColor="red";
+            }
        })
        .catch(function(error) {
            alert("Your request did not work.")
@@ -121,38 +151,37 @@ function fiveDayPopulate(date,data){
     // Display weather icons
     var weatherIcon = document.createElement("img");
     var getIcon = data.weather[0].icon;
-    weatherIcon.setAttribute("href", "http://openweathermap.org/img/wn/" + getIcon + "@2x.png");
-    weatherIcon.style.width="25px";
-    weatherIcon.style.height="25px";
+    weatherIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + getIcon + "@2x.png");
+    weatherIcon.style.width="50px";
+    weatherIcon.style.height="50px";
     day1.append(weatherIcon);
 
     // Display temp, wind, humidity
     var tempData = document.createElement("p");
-    tempData.innerText = "Temperature: " + data.main.temp + "°F";
+    tempData.innerHTML = "<strong>Temperature:</strong> " + data.main.temp + "°F";
     day1.append(tempData);
     var windData = document.createElement("p");
-    windData.innerText = "Wind Speed: " + data.wind.speed + " mph";
+    windData.innerHTML = "<strong>Wind Speed:</strong> " + data.wind.speed + " mph";
     day1.append(windData);
     var humData = document.createElement("p");
-    humData.innerText = "Humidity: " + data.main.humidity + "%";
+    humData.innerHTML = "<strong>Humidity:</strong> " + data.main.humidity + "%";
     day1.append(humData);
     
     console.log(weatherIcon);
 };
  
+function previousCities() {
+    var pastCities = document.querySelector("#recent-cities");
+    console.log(recentCities);
+    for(var i=0; i < recentCities.length; i++){
+        var cityButton = document.createElement("button");
+        cityButton.innerText = recentCities[i];
+        pastCities.append(cityButton);
+        console.log(recentCities[i]);
+    }
 
-
- 
-
-            // uvi less than 3 = favorable 
-            // Else if  less than 7 = moderate
-            // Else severe
-            
-            // Change from Kelvin to Fahrenheit
-            // Add imperial units attribute to fetch call
-            
-            // var apiCall = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=733365acf6769a12fdd6beef0019d12f"
-            
+}
+previousCities();     
             
 
         
