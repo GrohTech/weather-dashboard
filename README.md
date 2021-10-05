@@ -32,7 +32,7 @@ Weather Dashboard is a simple and effective weather app, in which you can search
 2. UV Index is color-coded to show favorable, moderate, and severe conditions
 3. A list of previous city searches
 
-**View the application, here:** [Weather Dashboard](https://grohtech.github.io/weather-dashboard/"Weather Dashboard")
+**View the application, here:** [Weather Dashboard](https://grohtech.github.io/weather-dashboard/ "Weather Dashboard")
 
 **View website screenshots, here:**  
 ![Weather Dashboard - 1](./assets/images/weather-dashboard-1.png "Weather Dashboard - 1")
