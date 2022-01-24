@@ -15,7 +15,7 @@
 ## INTRODUCTION
 ---------------
 
-Weather Dashboard is a simple and effective weather app, in which you can search for a city and find the current weather as well as the weather for the next five days.
+Weather Dashboard is a simple and effective weather app, built with HTML, CSS, JavaScript, Bootstrap, Moment.js, and pulls data using client-side weather APIs. Within Weather Dashboard, you can search for a city and find the current weather as well as the weather for the next five days.
 
 ## USER INSTRUCTIONS
 --------------------
